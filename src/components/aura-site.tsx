@@ -184,7 +184,15 @@ export function AuraSite() {
           </div>
           <div className="hidden items-center gap-3 lg:flex">
             <Button asChild variant="outline" size="sm"><a href={`tel:${phone.replaceAll(" ", "")}`}><Phone className="h-4 w-4" />Call Now</a></Button>
-            <Button asChild size="sm"><a href={whatsappLink(bookMessage)} target="_blank">Book Appointment</a></Button>
+            <Button asChild size="sm">
+  <a
+    href="https://calendly.com/pulkitgambhir1709/30min"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Book Appointment
+  </a>
+</Button>
             {mounted && <Button variant="ghost" size="icon" aria-label="Toggle dark mode" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>{theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}</Button>}
           </div>
           <Button className="lg:hidden" variant="ghost" size="icon" onClick={() => setMenuOpen(true)} aria-label="Open menu"><Menu /></Button>
@@ -206,8 +214,16 @@ export function AuraSite() {
               <h1 className="mt-5 font-serif text-4xl font-bold leading-tight text-aura-ink dark:text-white sm:text-6xl lg:text-7xl">Luxury Nail Art & Professional Training in Sangrur</h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-700 dark:text-zinc-200 sm:text-lg">Premium nail extensions, bridal nail styling, acrylic nails, gel nails, and internationally inspired nail training programs.</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg"><a href={whatsappLink(bookMessage)} target="_blank"><CalendarCheck className="h-5 w-5" />Book Appointment</a></Button>
-                <Button asChild variant="outline" size="lg"><a href={whatsappLink("Hi Aura Nail Studio, I want details about the nail art course")} target="_blank"><GraduationCap className="h-5 w-5" />Join Nail Art Course</a></Button>
+<Button asChild size="lg">
+  <a
+    href="https://calendly.com/pulkitgambhir1709/30min"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <CalendarCheck className="h-5 w-5" />
+    Book Appointment
+  </a>
+</Button>                <Button asChild variant="outline" size="lg"><a href={whatsappLink("Hi Aura Nail Studio, I want details about the nail art course")} target="_blank"><GraduationCap className="h-5 w-5" />Join Nail Art Course</a></Button>
               </div>
               <div className="mt-9 grid grid-cols-3 gap-3">
                 {["700+ Instagram Community", "100+ Happy Clients", "Professional Training Available"].map((stat) => <Card key={stat} className="p-4 text-center text-sm font-semibold text-aura-wine dark:text-aura-soft">{stat}</Card>)}
