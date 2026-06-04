@@ -41,7 +41,7 @@ const services = [
   ["Nail Extensions", "Sculpted length, clean apex, premium finish.", "Sparkles", "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80"],
   ["Gel Nails", "Glossy, flexible gel sets for daily luxury.", "Heart", "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=80"],
   ["Acrylic Nails", "Durable acrylic overlays and extensions.", "Award", "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=80"],
-  ["Press-on Nails", "Custom reusable press-ons for events and shoots.", "Sparkles", "https://images.unsplash.com/photo-1610992015753-2449b0b4921f?auto=format&fit=crop&w=900&q=80"],
+  ["Press-on Nails", "Custom reusable press-ons for events and shoots.", "Sparkles", "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=80"],
   ["Bridal Nails", "Statement bridal styling for your wedding story.", "Heart", "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=900&q=80"],
   ["Nail Repair", "Gentle fixes for chips, breaks, and damaged nails.", "Check", "https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&w=900&q=80"],
   ["Nail Art", "Detailed art, chrome, marble, florals, and more.", "Sparkles", "https://images.unsplash.com/photo-1599948128020-9a44505b0d1b?auto=format&fit=crop&w=900&q=80"],
@@ -111,11 +111,13 @@ export function AuraSite() {
   const [showTop, setShowTop] = useState(false);
   const [popup, setPopup] = useState(false);
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
 
   useEffect(() => {
+    setMounted(true);
     const onScroll = () => {
       setSolid(window.scrollY > 24);
       setShowTop(window.scrollY > 700);
@@ -183,7 +185,7 @@ export function AuraSite() {
           <div className="hidden items-center gap-3 lg:flex">
             <Button asChild variant="outline" size="sm"><a href={`tel:${phone.replaceAll(" ", "")}`}><Phone className="h-4 w-4" />Call Now</a></Button>
             <Button asChild size="sm"><a href={whatsappLink(bookMessage)} target="_blank">Book Appointment</a></Button>
-            <Button variant="ghost" size="icon" aria-label="Toggle dark mode" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>{theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}</Button>
+            {mounted && <Button variant="ghost" size="icon" aria-label="Toggle dark mode" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>{theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}</Button>}
           </div>
           <Button className="lg:hidden" variant="ghost" size="icon" onClick={() => setMenuOpen(true)} aria-label="Open menu"><Menu /></Button>
         </nav>
