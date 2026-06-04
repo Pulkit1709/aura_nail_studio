@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --primary: 337 86% 76%;
+  --primary-foreground: 0 0% 10%;
+  --secondary: 337 100% 95%;
+  --secondary-foreground: 337 62% 34%;
+  --muted: 337 100% 97%;
+  --muted-foreground: 337 16% 38%;
+  --border: 337 40% 88%;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 337 32% 8%;
+  --foreground: 0 0% 98%;
+  --card: 337 26% 12%;
+  --card-foreground: 0 0% 98%;
+  --primary: 337 86% 76%;
+  --primary-foreground: 0 0% 10%;
+  --secondary: 337 24% 17%;
+  --secondary-foreground: 337 100% 94%;
+  --muted: 337 20% 16%;
+  --muted-foreground: 337 22% 78%;
+  --border: 337 24% 22%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+::selection {
+  background: #f58db6;
+  color: #1a1a1a;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.luxury-gradient {
+  background:
+    radial-gradient(circle at top left, rgba(255, 232, 241, 0.95), transparent 38%),
+    linear-gradient(135deg, #ffffff 0%, #fff7fa 46%, #ffe8f1 100%);
+}
+
+.dark .luxury-gradient {
+  background:
+    radial-gradient(circle at top left, rgba(245, 141, 182, 0.18), transparent 38%),
+    linear-gradient(135deg, #180911 0%, #2a0d1a 54%, #10060b 100%);
+}
+
+.masonry {
+  column-count: 1;
+  column-gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+@keyframes pulse-whatsapp {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.42);
+  }
+  50% {
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-pulse {
+  animation: pulse-whatsapp 1.8s infinite;
+}
