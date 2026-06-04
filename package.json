@@ -29,10 +29,10 @@
     "zod": "^3.24.3"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "@types/node": "^22.15.3",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "@eslint/eslintrc": "^3.3.1",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.25.1",
     "eslint-config-next": "^15.5.19",
